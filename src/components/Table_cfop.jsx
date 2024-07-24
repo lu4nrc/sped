@@ -32,6 +32,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card } from "./ui/card";
+import CopyToClipboard from "./CopyToClipboard";
 
 export const columns = [
   {
@@ -157,22 +158,24 @@ export function CfopTable({ data, title, icms , titleTwo,resum}) {
               <span className="text-sm font-normal text-muted-foreground">
                 {title}
               </span>
-              <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
+              <div className="flex itens-center gap-2 text-2xl font-bold tabular-nums leading-none">
                 {new Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(selectedTotal)}
+              <CopyToClipboard text={selectedTotal}/>
               </div>
             </Card>
             <Card className={"p-2 flex-1"}>
                 <span className="text-sm font-normal text-muted-foreground">
                   {titleTwo}
                 </span>
-              <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
+              <div className="flex items-center gap-2 text-2xl font-bold tabular-nums leading-none">
                 {new Intl.NumberFormat("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 }).format(icms)}
+                <CopyToClipboard text={icms}/>
               </div>
             </Card>
           </div>
